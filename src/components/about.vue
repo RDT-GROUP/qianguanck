@@ -7,25 +7,31 @@
 		        <div class="row">
 		            <h1>{{pageTitle}}</h1>
 		        </div>
-		        <!-- <hr> -->
 		    </div>
 		    <div class="col-md-2"></div>
 		</div>
 		<div class="col-md-12">
-			<button class="btn btn-default" @click="viewChanger('BriefIntro')" style="width: 100px;">简介</button>
-			<button class="btn btn-default" @click="viewChanger('Achievements')" style="width: 100px;">成果与资质</button>
-			<button class="btn btn-default" @click="viewChanger('EnvironmentInfo')" style="width: 100px;">办公环境</button>
-			<component :is="currentView"></component>
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<ul class="nav nav-tabs">
+					<li><p>&nbsp;&nbsp;&nbsp;</p></li>
+					<li :class="{'active': isChoosen1}" id="tab1"><a href="#" data-toggle="tab" @click="viewChanger('BriefIntro')">简介</a></li>
+					<li :class="{'active': isChoosen2}" id="tab2"><a href="#" data-toggle="tab" @click="viewChanger('Achievements')">成果与资质</a></li>
+					<li :class="{'active': isChoosen3}" id="tab3"><a href="#" data-toggle="tab" @click="viewChanger('EnvironmentInfo')">办公环境</a></li>
+				</ul>
+				<component :is="currentView"></component>
+			</div>
+			<div class="col-md-2"></div>
 		</div>
 		<p>&nbsp;</p>
 	</div>
 </template>
 
 <script type="text/javascript">
-import TopBlank from "./TopBlank.vue"
-import EnvironmentInfo from "./EnvironmentInfo.vue"
-import Achievements from "./Achievements.vue"
-import BriefIntro from "./BriefIntro.vue"
+import TopBlank from "./structureComponents/TopBlank.vue"
+import EnvironmentInfo from "./aboutSub/EnvironmentInfo.vue"
+import Achievements from "./aboutSub/Achievements.vue"
+import BriefIntro from "./aboutSub/BriefIntro.vue"
 export default {
 	components: {
 		TopBlank,
@@ -37,12 +43,35 @@ export default {
 		return {
 			pageTitle: '公司介绍',
 			currentView: 'BriefIntro',
-			Height: 0,
+			isChoosen1: true,
+			isChoosen2: false,
+			isChoosen3: false,
 		}
 	},
 	methods: {
 		viewChanger: function(component) {
 			this.currentView = component;
+			switch(component) {
+				case 'BriefIntro': 
+					this.isChoosen1 = true;
+					this.isChoosen2 = false;
+					this.isChoosen3 = false;
+					break;
+				case 'Achievements':
+					this.isChoosen1 = false;
+					this.isChoosen2 = true;
+					this.isChoosen3 = false;
+					break;
+				case 'EnvironmentInfo':
+					this.isChoosen1 = false;
+					this.isChoosen2 = false;
+					this.isChoosen3 = true;
+					break;
+				// default:
+				// 	this.isChoosen1 = true;
+				// 	this.isChoosen2 = false;
+				// 	this.isChoosen3 = false;
+			}
 		},
 	}
 }
@@ -57,4 +86,25 @@ export default {
         position: sticky;
         z-index: 10;
     }
+	#tab1 :visited{
+		background-color: #E3E3E3;
+	}
+	#tab1 :hover{
+		background-color: #E3E3E3;
+		color: #000000;
+	}
+	#tab2 :visited{
+		background-color: #E3E3E3;
+	}
+	#tab2 :hover{
+		background-color: #E3E3E3;
+		color: #000000;
+	}
+	#tab3 :visited{
+		background-color: #E3E3E3;
+	}
+	#tab3 :hover{
+		background-color: #E3E3E3;
+		color: #000000;
+	}
 </style>

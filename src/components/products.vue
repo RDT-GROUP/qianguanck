@@ -7,39 +7,18 @@
 		        <div class="row">
 		            <h1>{{pageTitle}}</h1>
 		        </div>
-		        <!-- <hr> -->
 		    </div>
 		    <div class="col-md-2"></div>
 		</div>
 		<div class="col-md-12">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<div class="row">
-					<h2>{{productInfo[0].pTitle}}</h2>
-				</div>
-				<div class="row">
-					<p>{{productInfo[0].pProfile}}</p>
-				</div>
-				<div class="row">
-					<video id="pVideo" class="video-js vjs-big-play-centered vjs-fluid">
-						<source :src="productInfo[0].pVideo" type="video/mp4"></source>
-					</video>
-				</div>
-			</div>
-			<div class="col-md-2"></div>
-		</div>
-		<div class="col-md-12">
-			<div class="col-md-2"></div>
-			<div class="col-md-8">
-				<div class="row">
-					<h2>{{productInfo[1].pTitle}}</h2>
-				</div>
-				<div class="row">
-					<p>{{productInfo[1].pProfile}}</p>
-				</div>
-				<div class="row">
-					<img class="col-md-12" :src="productInfo[1].pPic" />
-				</div>
+				<ul class="nav nav-tabs">
+					<li><p>&nbsp;&nbsp;&nbsp;</p></li>
+					<li :class="{'active': isChoosen1}" id="tab1"><a href="#" data-toggle="tab" @click="viewChanger('Product1')">超大规模实时分布式应变测量系统</a></li>
+					<li :class="{'active': isChoosen2}" id="tab2"><a href="#" data-toggle="tab" @click="viewChanger('Product2')">西安航空学院静力实验平台</a></li>
+				</ul>
+				<component :is="currentView"></component>
 			</div>
 			<div class="col-md-2"></div>
 		</div>
@@ -48,45 +27,57 @@
 </template>
 
 <script type="text/javascript">
-	import TopBlank from "./TopBlank.vue";
-export default {
-	components: {
-		TopBlank,
-	},
-	data () {
-		return {
-			pageTitle: '产品中心',
-			productInfo: [{
-				pTitle: '现场采集单元',
-				pProfile: '现场采集单元',
-				// pPic: require('../assets/products/product1/pic1.jpg'),
-				pVideo: require('../assets/products/product2/acquisitionUnit.mp4')
+	import TopBlank from "./structureComponents/TopBlank.vue";
+	import Product1 from "./productsSub/Product1.vue";
+	import Product2 from "./productsSub/Product2.vue";
+	export default {
+		components: {
+			TopBlank,
+			Product1,
+			Product2,
+		},
+		data () {
+			return {
+				pageTitle: '产品中心',
+				currentView: 'Product1',
+				isChoosen1: true,
+				isChoosen2: false,
+			}
+		},
+		methods: {
+			viewChanger: function(component) {
+				this.currentView = component;
+				switch(component) {
+					case 'Product1': 
+						this.isChoosen1 = true;
+						this.isChoosen2 = false;
+						break;
+					case 'Product2':
+						this.isChoosen1 = false;
+						this.isChoosen2 = true;
+						break;
+					default:
+						this.isChoosen1 = true;
+						this.isChoosen2 = false;
+				}
 			},
-			{
-				pTitle: '西安航空学院静力试验平台',
-				pProfile: '我司于2019年下半年为西安航空学院提供一套航空部件静力试验教学平台。',
-				pPic: require('../assets/products/product1/pic1.jpg'),
-				// pVideo: require('../assets/products/product2/acquisitionUnit.mp4')
-			}]
-		}
-	},
-	mounted() {
-		this.initVideo();
-	},
-	methods: {
-		initVideo() {
-			let myPlayer = this.$video(pVideo, {
-				controls: true,
-				autoplay: 'play',
-				preload: "auto",
-				//set the scale of the player by using width and height attributes.
-				// width: "1200px",
-				// height: "720px",
-			});
 		}
 	}
-}
 </script>
 
 <style>
+	#tab1 :visited{
+		background-color: #E3E3E3;
+	}
+	#tab1 :hover{
+		background-color: #E3E3E3;
+		color: #000000;
+	}
+	#tab2 :visited{
+		background-color: #E3E3E3;
+	}
+	#tab2 :hover{
+		background-color: #E3E3E3;
+		color: #000000;
+	}
 </style>
