@@ -14,7 +14,7 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-6">
                     <table>
-                    <tr v-for="contactItem in contactInfo" :key="contactItem">
+                    <tr v-for="(contactItem, index) in contactInfo" :key="contactItem.index">
                         <td>{{contactItem.content1}}</td>
                         <td class="tbinfo">{{contactItem.content2}}</td>
                     </tr>
@@ -58,7 +58,7 @@ export default {
 
 <style>
     #Footer {
-		height: 170px;
+		height: 150px;
 		background-color: #FFFFFF;
 	}
     .tbinfo {

@@ -4,13 +4,13 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<TopBlank></TopBlank>
-				<div class="row" v-for="introItem in achievementIntro" :key="introItem">
+				<div class="row" v-for="(introItem, index) in achievementIntro" :key="introItem.index">
 					<h4 style="text-align: left;">{{introItem.content}}</h4>
 				</div>
 				<TopBlank></TopBlank>
 				<div class="row">
 					<div class="col-md-12">
-						<div class="col-md-4" v-for="picItem in picList" :key="picItem"><img :src="picItem.pic" style="width: 100%;" /></div>
+						<div class="col-md-4" v-for="(picItem, index) in picList" :key="picItem.index"><img :src="picItem.pic" style="width: 100%;" /></div>
 					</div>
 				</div>
 			</div>

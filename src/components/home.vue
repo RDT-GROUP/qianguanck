@@ -1,7 +1,7 @@
 <template>
 	<div id="home">
 		<Billboard></Billboard>
-		<div class="row"  v-for="introItem in introList" :key="introItem">
+		<div class="row"  v-for="(introItem, index) in introList" :key="introItem.index">
 			<div class="col-md-12" id="rowInfoForHome">
 				<div class="col-md-6" id="pic">
 					<img :src="introItem.pic1" style="width: 100%;">

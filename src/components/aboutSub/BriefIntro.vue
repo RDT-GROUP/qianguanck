@@ -4,7 +4,7 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<TopBlank></TopBlank>
-				<div class="row" v-for="briefItem in briefIntro" :key="briefItem">
+				<div class="row" v-for="(briefItem, index) in briefIntro" :key="briefItem.index">
 					<h4 style="text-align: left;">{{briefItem.content}}</h4>
 				</div>
 			</div>
