@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue'
-import Billboard from './components/Billboard'
-import Footer from './components/Footer'
+import NavBar from './components/structureComponents/NavBar.vue'
+// import Billboard from './components/structureComponents/Billboard.vue'
+import Footer from './components/structureComponents/Footer.vue'
 export default {
 	components: {
 		NavBar,
-		Billboard,
+		// Billboard,
 		Footer
 	},
 	data() {
@@ -33,6 +33,9 @@ export default {
 <style>
 body {
     margin: 0px;
+	/* background-image: url(./assets/common/backgroundImg.jpg);
+	background-size: cover;
+	background-position: center; */
 }
 body::-webkit-scrollbar {
     width: 0px;
@@ -47,16 +50,5 @@ hr {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-#NavBar {
-    position: fixed;
-    z-index: 100000;
-    background-color: white;
-    width: 100%;
-    border-bottom: 1px #D0D0D0 solid;
-}
-#Billboard {
-    padding-top: 50px;
-    margin-bottom: 15px;
 }
 </style>

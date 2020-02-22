@@ -26,7 +26,7 @@
 </template>
 
 <script type="text/javascript">
-	import Billboard from '../components/Billboard';
+	import Billboard from '../components/structureComponents/Billboard';
 	export default {
 		components: {
 			Billboard
@@ -64,4 +64,8 @@
     #rowInfoForHome:hover {
         background-color: #E3E3E3;
     }
+	#Billboard {
+		padding-top: 50px;
+		margin-bottom: 15px;
+	}
 </style>
