@@ -2,10 +2,10 @@
     <div id="NavBar">
 		<div class="row">
 			<div class="col-md-2"></div>
-			<div class="col-md-8" style="padding-left: 5px;">
-				<ul>
+			<div class="col-md-8" style="padding-left: 40px;">
+				<ul class="nav nav-pills">
 					<li class="navImg"><img :src="logoTop" style="height: 50px;" align="texttop" /></li>
-					<li class="navOptions" v-for="(tagItem, index) in navBar" :key="tagItem.index">
+					<li class="navOptions" :id="tagItem.id" v-for="(tagItem, index) in navBar" :key="tagItem.index">
 						<router-link :to="tagItem.url">{{tagItem.tag}}</router-link>
 					</li>
 				</ul>
@@ -22,15 +22,18 @@ export default {
 			logoTop: require('../../assets/common/logo_top.jpg'),
 			navBar: [{
 				url: '/',
-				tag: '首      页'
+				tag: '首      页',
+				id: 'p1'
 			},
 			{
 				url: '/about',
-				tag: '公司介绍'
+				tag: '公司介绍',
+				id: 'p2'
 			},
 			{
 				url: '/products',
-				tag: '产品中心'
+				tag: '产品中心',
+				id: 'p3'
 			}]
 		}
 	}
@@ -47,22 +50,32 @@ export default {
 		height: 51px;
 		border-bottom: 1px #D0D0D0 solid;
     }
+	.nav > li > a {
+		padding: 2px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	#p1 :visited {
+		background-color: #FFFFFF;
+	}
+	#p2 :visited,
+	#p3 :visited{
+		background-color: #E3E3E3;
+	}
+	#p1 :hover,
+	#p2 :hover,
+	#p3 :hover{
+		background-color: #E3E3E3;
+		color: #000000;
+	}
     .container {
         float: left;
     }
-    /* .container > div {
-        display: inline;
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: 800;
-        margin-left: 40px;
-        white-space: pre-wrap;
-    } */
 	.navImg{
 		width: 330px;
 		height: 50px;
 		display: inline-block;
-		margin-right: 40px;
+		margin-right: 20px;
 		float: left;
 	}
 	.navOptions {
@@ -70,13 +83,14 @@ export default {
 		text-decoration: none;
 		font-size: 21px;
 		font-weight: 600;
-		margin-right: 40px;
+		/* margin-right: 40px; */
 		float: left;
-		height: 50px;
+		/* height: 50px; */
 		white-space: pre-wrap;
 		line-height: 42px;
-		margin-top: 3px;
+		margin-top: 2px;
 	}
+	
     a:link {
         color: #686868;
 		text-decoration: none;
