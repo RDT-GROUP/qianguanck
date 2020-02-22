@@ -2,7 +2,7 @@
     <div id="NavBar">
         <div class="container">
             <div><img :src="logoTop" style="height: 50px;" /></div>
-            <div v-for="tagItem in navBar" :key="tagItem"><router-link :to="tagItem.url">{{tagItem.tag}}</router-link></div>
+            <div v-for="(tagItem, index) in navBar" :key="tagItem.index"><router-link :to="tagItem.url">{{tagItem.tag}}</router-link></div>
         </div>
     </div>
 </template>

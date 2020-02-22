@@ -3,7 +3,7 @@
 		<NavBar/>
 		<!-- <Billboard/> -->
 		<!-- <router-view/> -->
-		<div :style="{minHeight: Height+'px'}"><router-view/></component></div>
+		<div :style="{minHeight: Height+'px'}"><router-view></router-view></div>
 		<Footer></Footer>
 	</div>
 </template>

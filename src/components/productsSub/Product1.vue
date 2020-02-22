@@ -4,7 +4,7 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<TopBlank></TopBlank>
-				<div class="row" v-for="infoItem in productProfile" :key="infoItem">
+				<div class="row" v-for="(infoItem, index) in productProfile" :key="infoItem.index">
 					<h4 v-html="infoItem.content"></h4>
 				</div>
 				<TopBlank></TopBlank>
@@ -14,7 +14,7 @@
 					</video>
 				</div>
 				<TopBlank></TopBlank>
-				<div class="row" v-for="introItem in productIntro" :key="introItem">
+				<div class="row" v-for="(introItem, index) in productIntro" :key="introItem.index">
 					<h4>{{introItem.content}}</h4>
 				</div>
 				<TopBlank></TopBlank>
@@ -25,7 +25,7 @@
 				<div class="row">
 					<h2 style="text-align: left;"><b>产品特点</b></h2>
 				</div>
-				<div class="row" v-for="(featureItem, index) in productFeature" :key="featureItem"><!--vue2.0 get index from array-->
+				<div class="row" v-for="(featureItem, index) in productFeature" :key="featureItem.index"><!--vue2.0 get index from array-->
 					<h3><br>特点 {{index + 1}}:</h3>
 					<h4 v-html="featureItem.content"></h4>	<!--this line is used to convert the varible value to html code, typically be used to implement line change.-->
 					<img class="col-md-12" :src="featureItem.itemPic" />
