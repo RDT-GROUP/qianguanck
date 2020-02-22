@@ -1,9 +1,17 @@
 <template>
     <div id="NavBar">
-        <div class="container">
-            <div><img :src="logoTop" style="height: 50px;" /></div>
-            <div v-for="(tagItem, index) in navBar" :key="tagItem.index"><router-link :to="tagItem.url">{{tagItem.tag}}</router-link></div>
-        </div>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8" style="padding-left: 5px;">
+				<ul>
+					<li class="navImg"><img :src="logoTop" style="height: 50px;" align="texttop" /></li>
+					<li class="navOptions" v-for="(tagItem, index) in navBar" :key="tagItem.index">
+						<router-link :to="tagItem.url">{{tagItem.tag}}</router-link>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
     </div>
 </template>
 
@@ -42,14 +50,33 @@ export default {
     .container {
         float: left;
     }
-    .container > div {
+    /* .container > div {
         display: inline;
         text-decoration: none;
         font-size: 18px;
         font-weight: 800;
         margin-left: 40px;
         white-space: pre-wrap;
-    }
+    } */
+	.navImg{
+		width: 330px;
+		height: 50px;
+		display: inline-block;
+		margin-right: 40px;
+		float: left;
+	}
+	.navOptions {
+		display: inline-block;
+		text-decoration: none;
+		font-size: 21px;
+		font-weight: 600;
+		margin-right: 40px;
+		float: left;
+		height: 50px;
+		white-space: pre-wrap;
+		line-height: 42px;
+		margin-top: 3px;
+	}
     a:link {
         color: #686868;
 		text-decoration: none;
