@@ -86,23 +86,19 @@ export default {
         position: sticky;
         z-index: 10;
     }
-	#tab1 :visited{
-		background-color: #E3E3E3;
-	}
-	#tab1 :hover{
+	/* .active {
 		background-color: #E3E3E3;
 		color: #000000;
-	}
-	#tab2 :visited{
-		background-color: #E3E3E3;
-	}
-	#tab2 :hover{
-		background-color: #E3E3E3;
-		color: #000000;
-	}
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+	} */
+	#tab1 :visited,
+	#tab2 :visited,
 	#tab3 :visited{
 		background-color: #E3E3E3;
 	}
+	#tab1 :hover,
+	#tab2 :hover,
 	#tab3 :hover{
 		background-color: #E3E3E3;
 		color: #000000;
