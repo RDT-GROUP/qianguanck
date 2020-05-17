@@ -16,7 +16,7 @@
 				<ul class="nav nav-tabs">
 					<li><p>&nbsp;&nbsp;&nbsp;</p></li>
 					<li :class="{'active': isChoosen1}" id="tab1"><a href="#" data-toggle="tab" @click="viewChanger('BriefIntro')">简介</a></li>
-					<li :class="{'active': isChoosen2}" id="tab2"><a href="#" data-toggle="tab" @click="viewChanger('Achievements')">成果与资质</a></li>
+					<li :class="{'active': isChoosen2}" id="tab2"><a href="#" data-toggle="tab" @click="viewChanger('Achievements')">公司荣誉</a></li>
 					<li :class="{'active': isChoosen3}" id="tab3"><a href="#" data-toggle="tab" @click="viewChanger('EnvironmentInfo')">办公环境</a></li>
 				</ul>
 				<component :is="currentView"></component>
